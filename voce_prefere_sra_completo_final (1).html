@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Você Prefere – Sra. Festeira</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      background: #880e4f;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      text-align: center;
+    }
+    .title {
+      color: #FFD700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .level {
+      color: #FFD700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .question {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background-color: #FFD700;
+      color: #000;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0.25rem;
+    }
+    .btn:hover {
+      background-color: #ffe357;
+    }
+    .controls {
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+    <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+    <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+    <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+  </div>
+
+  <div class="card">
+    <div class="title">Sra. Festeira, você prefere...</div>
+    <div class="level" id="nivel-label">Nível: SENSUAL</div>
+    <div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
+    <button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
+  </div>
+
+  <script>
+    const perguntas = {"sensual": ["Sussurrar no ouvido dele o que quer que ele faça ou escrever isso numa nota escondida?", "Ficar sentada no colo dele em silêncio ou provocar ele por baixo da roupa?", "Tocar nele enquanto ele dirige ou pedir que ele pare o carro e te pegue ali mesmo?", "Usar salto e lingerie ou ficar de camisola sem calcinha?", "Ser surpreendida no banho ou surpreendê-lo na cozinha?", "Fingir que é difícil ou se jogar com vontade nele?", "Se olhar no espelho enquanto ele te toca ou filmar ele te chupando?", "Beijar cada parte do corpo dele ou fazer ele fazer isso com você?", "Ver ele se masturbando para você ou você se tocar enquanto ele observa?", "Fazer amor no sofá com risco de alguém ouvir ou na varanda de madrugada?", "Fazer amor devagar olhando nos olhos ou com pegada e gemidos?", "Receber uma massagem com óleo ou fazer nele até ele implorar?", "Ficar nua na frente dele e ver a reação ou vê-lo nu se exibindo só para você?", "Ouvir ele dizer que se masturbou pensando em você ou que sonhou que você mandava nele?", "Provocar com toques suaves ou com palavras quentes no ouvido?", "Ser despida lentamente ou arrancar a roupa dele com vontade?", "Sentir ele te despindo com os olhos ou com as mãos?", "Mandar um nude ousado durante o dia ou um áudio falando o que vai fazer com ele à noite?", "Ser acordada com carinhos no corpo ou com ele sussurrando desejos no seu ouvido?", "Tomar banho com ele ou fazer um strip só para provocá-lo?"], "sexual": ["Brincar com leite condensado ou com chantilly e língua?", "Sentir ele te penetrar devagar ou com força até você pedir pra parar?", "Usar um vibrador na frente dele ou ele usar um em você sem parar?", "Gozar no rosto dele ou nos dedos dele, olhando nos olhos?", "Sentar devagar e fazer ele implorar ou sentar com força e gozar junto?", "Fazer amor com espelho ou com vendas e gemidos abafados?", "Ser chupada até gozar ou enquanto geme no ouvido dele?", "Ver ele se tocar pensando em você ou ele te vendo fazer isso por ele?", "Se masturbar em frente a ele enquanto ele se toca ou ele fazer isso com você assistindo?", "Chupar até ele pedir pra parar ou até ele gozar?", "Dar um boquete enquanto ele dirige ou enquanto ele te puxa pelo cabelo?", "Transar de quatro olhando pra trás ou por cima, com controle total?", "Ser penetrada com gelo no corpo ou óleo quente escorrendo?", "Fazer amor na escada ou na pia da cozinha com ele te pegando forte?", "Receber uma linguada bem dada ou um boquete molhado com tudo?", "Gozar enquanto ele filma ou vendo ele gozar assistindo o vídeo depois?", "Fazer sexo com música alta ou com os sons dos corpos?", "Receber uma massagem que termina com penetração ou um oral que te faz gritar?", "Usar plug anal escondido em um jantar ou vibrador com controle remoto?", "Receber um tapa na bunda enquanto geme ou puxão de cabelo e mordida no pescoço?"], "hardcore": ["Ser totalmente submissa ou totalmente dominadora em um trio?", "Chupar outra mulher com ele tocando vocês ou só ele chupando vocês duas alternadamente?", "Receber spanking e elogios ou palavras sujas e puxão de cabelo?", "Sussurrar desejos em trio ou gritar tesão a três em voz alta?", "Ver ele de joelhos te adorando ou de pé te pegando sem dó?", "Gozar sendo filmada ou vendo ele gozar te filmando com outra?", "Ver ele sendo chupado por outra ou você chupando ela com ele assistindo?", "Usar cinta em outra mulher com ele olhando ou assistir ele usando você e ela?", "Dominar uma mulher com ele ou ver ele dominar vocês duas?", "Ela sentando na sua cara enquanto ele te penetra ou o contrário?", "Ter orgasmo múltiplo com os dois te adorando ou com os dois te dominando?", "Ser amarrada com corda artística ou com algemas e vendas?", "Gozo triplo com todos participando ou se revezando para te fazer gozar três vezes?", "Beber gozo de outra mulher enquanto ele goza em você ou gozar nas mãos de ambos?", "Usar vela quente e gelo ou spanking com palavras de dominação?", "Ser chamada de vadia e obedecer ou mandar ele te usar como quiser?", "Gozar com mordaça ou com vibração controlada por ele?", "Estar com plug anal e algemada ou com vendas e ser penetrada?", "Dar ordens para os dois ou obedecer às ordens dos dois juntos?", "Ser montada enquanto outra te beija ou ser chupada enquanto beija ele?"]};
+
+    const niveis = ["sensual", "sexual", "hardcore"];
+    let nivelIndex = 0;
+    let nivelAtual = niveis[nivelIndex];
+    let perguntasOrdem = [];
+    let index = 0;
+    let manual = false;
+
+    function embaralhar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function setNivel(nivel, isManual = false) {
+      nivelAtual = nivel;
+      nivelIndex = niveis.indexOf(nivel);
+      index = 0;
+      perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+      atualizarPergunta();
+      manual = isManual;
+    }
+
+    function proximaPergunta() {
+      index++;
+      if (index >= perguntas[nivelAtual].length) {
+        if (!manual) {
+          nivelIndex++;
+          if (nivelIndex >= niveis.length) {
+            alert("✅ Todos os níveis concluídos! Reiniciando...");
+            reiniciar();
+            return;
+          } else {
+            nivelAtual = niveis[nivelIndex];
+            setNivel(nivelAtual);
+            alert("🔥 Avançando para o nível: " + nivelAtual.toUpperCase());
+            return;
+          }
+        } else {
+          alert("✅ Você concluiu todas as perguntas deste nível.");
+          index = 0;
+          perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+        }
+      }
+      atualizarPergunta();
+    }
+
+    function atualizarPergunta() {
+      document.getElementById("pergunta").textContent = perguntas[nivelAtual][perguntasOrdem[index]];
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+    }
+
+    function reiniciar() {
+      manual = false;
+      nivelIndex = 0;
+      setNivel(niveis[nivelIndex]);
+    }
+
+    reiniciar();
+  </script>
+</body>
+</html>
