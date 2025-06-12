@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Você Prefere – Sra. Festeira</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      background: #880e4f;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      text-align: center;
+    }
+    .title {
+      color: #FFD700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .level {
+      color: #FFD700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .question {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background-color: #FFD700;
+      color: #000;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0.25rem;
+    }
+    .btn:hover {
+      background-color: #ffe357;
+    }
+    .controls {
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+    <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+    <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+    <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+  </div>
+
+  <div class="card">
+    <div class="title">Sra. Festeira, você prefere...</div>
+    <div class="level" id="nivel-label">Nível: SENSUAL</div>
+    <div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
+    <button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
+  </div>
+
+  <script>
+    
+const perguntas = {"sensual": [
+"Receber um bilhete erótico escondido na bolsa ou uma mensagem de voz picante?",
+"Ver ele te observar trocando de roupa ou provocar com olhares durante um jantar?",
+"Ter ele te abraçando por trás enquanto cozinha ou te esperando de toalha no quarto?",
+"Sentar no colo dele na poltrona ou dançar lentamente no colo dele?",
+"Usar uma lingerie nova de renda ou uma camisa dele sem nada por baixo?",
+"Receber um beijo no pescoço ao acordar ou um toque nas coxas durante o café?",
+"Tirar uma foto provocante escondida no banheiro ou enviar um áudio gemendo?",
+"Ser surpreendida com um jantar à luz de velas ou com um banho juntos à noite?",
+"Fazer um passeio noturno de carro com beijos parados no acostamento ou um banho de chuva juntos?",
+"Receber carinhos no cabelo enquanto ele sussurra desejos ou mordidas suaves na nuca?",
+"Brincar de strip poker ou de verdade ou desafio com toques?",
+"Fazer uma massagem nele e sentir a ereção crescer ou receber massagem sentindo ele excitado?",
+"Receber uma ligação inesperada só pra ouvir ele dizer o que quer fazer contigo ou ser surpreendida com um presente íntimo?",
+"Despir ele com os dentes ou ser despida lentamente com amarrações leves?",
+"Receber um olhar de desejo durante uma reunião social ou um beijo escondido num corredor?",
+"Ouvir ele dizer o quanto pensou em você o dia inteiro ou ouvir o que ele sonhou de safadeza?",
+"Deixar um bilhete dizendo o que você quer fazer depois ou preparar uma playlist sensual para vocês?",
+"Andar de saia sem calcinha num encontro ou usar um plug discreto sob o vestido?",
+"Fazer sexo com luz baixa e música suave ou com as janelas abertas com o risco de serem vistos?",
+"Ver ele te olhando se masturbando no espelho ou assistir ele se tocar imaginando você?"
+],
+"sexual": [
+"Fazer oral deitada no sofá ou ajoelhada com as mãos presas?",
+"Ser penetrada devagar enquanto ele segura seu queixo ou com força enquanto prende seu quadril?",
+"Ser amarrada na cama com lençóis ou com fita de cetim?",
+"Gozar no pau dele olhando pra cima ou enquanto ele segura seu cabelo e dita o ritmo?",
+"Receber carícias com gelo no corpo ou com penas suaves no clitóris?",
+"Ter os pulsos presos enquanto é chupada ou enquanto ele usa um vibrador em você?",
+"Fazer amor contra a parede ou sobre a mesa da cozinha?",
+"Ser filmada enquanto goza ou gravar o áudio dos seus gemidos?",
+"Deixar ele escolher o brinquedo da noite ou escolher você mesma e surpreendê-lo?",
+"Fazer sexo de quatro com ele puxando seu cabelo ou com tapas ritmados na bunda?",
+"Chupar ele na varanda escondida ou no elevador às escondidas?",
+"Fazer sexo com as mãos dele apertando seu pescoço ou puxando suas coxas contra ele?",
+"Receber elogios safados durante o sexo ou comandos de dominação?",
+"Gozar no mesmo instante que ele ou ouvir ele pedir pra segurar o gozo só pra te dar mais?",
+"Receber uma rapidinha contra a pia do banheiro ou um sexo longo e provocativo na sala?",
+"Ser penetrada com brinquedos durante um jantar íntimo ou durante uma sessão de fotos picante?",
+"Fazer sexo vendo o reflexo de vocês ou vendada só sentindo cada toque?",
+"Ter ele chupando seu clitóris devagar até explodir ou rapidamente várias vezes até gozar repetidamente?",
+"Usar calcinha vibratória no restaurante controlada por ele ou plug anal controlado à distância?",
+"Receber tapas e mordidas ao mesmo tempo ou carícias intensas com respiração pesada no ouvido?"
+],
+"hardcore": [
+"Ser vendada e deixada à disposição dos dois ou ser amarrada e provocada até suplicar?",
+"Chupar uma mulher enquanto ele goza em você ou ser penetrada enquanto segura a outra mulher gemendo?",
+"Ser chamada de sua putinha particular ou de vadia obediente dos dois?",
+"Fazer DP com dildo + ele ou alternar entre os dois oral e vaginal?",
+"Beber o gozo da outra enquanto recebe jatos dele ou engolir o dele enquanto a outra se masturba?",
+"Ser enforcada levemente durante o gozo ou ter o quadril imobilizado com força enquanto goza?",
+"Ver os dois se beijando enquanto te usam ou beijá-los enquanto é usada?",
+"Ter orgasmos consecutivos sendo estimulada por ambos ou ser provocada por horas antes de gozar forte?",
+"Ser dominada com palavras baixas no ouvido ou com ordens claras e firmes?",
+"Fazer DP vaginal e anal com dois brinquedos enquanto é observada por ele?",
+"Estar algemada com o plug anal vibrando ou com os mamilos presos com clipes de pressão?",
+"Participar de uma sessão de spanking coreografado ou de wax play com gotas de vela quente?",
+"Receber tapa na cara durante a penetração ou ser imobilizada com cordas artísticas durante o oral?",
+"Fazer sexo no carro com as portas abertas em local isolado ou no quintal da casa durante a madrugada?",
+"Ser amarrada com pernas abertas enquanto os dois revezam oral ou alternar penetração e oral constante?",
+"Receber elogios sujos no meio do DP ou ser chamada de insaciável pelos dois enquanto é fodida?",
+"Ter os olhos fixados neles enquanto goza ou ser obrigada a olhar para os dois durante o gozo?",
+"Ser usada de brinquedo dos dois sem controle de tempo ou ditar o ritmo de prazer dos dois como dominadora?",
+"Receber ordens simultâneas de ambos ou ter que escolher qual dos dois obedecer primeiro?",
+"Ser chupada e penetrada simultaneamente enquanto segura o cabelo da outra ou ter a outra sentada no seu rosto enquanto ele te fode?"
+]};
+
+
+    const niveis = ["sensual", "sexual", "hardcore"];
+    let nivelIndex = 0;
+    let nivelAtual = niveis[nivelIndex];
+    let perguntasOrdem = [];
+    let index = 0;
+    let manual = false;
+
+    function embaralhar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function setNivel(nivel, isManual = false) {
+      nivelAtual = nivel;
+      nivelIndex = niveis.indexOf(nivel);
+      index = 0;
+      perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+      atualizarPergunta();
+      manual = isManual;
+    }
+
+    function proximaPergunta() {
+      index++;
+      if (index >= perguntas[nivelAtual].length) {
+        if (!manual) {
+          nivelIndex++;
+          if (nivelIndex >= niveis.length) {
+            alert("✅ Todos os níveis concluídos! Reiniciando...");
+            reiniciar();
+            return;
+          } else {
+            nivelAtual = niveis[nivelIndex];
+            setNivel(nivelAtual);
+            alert("🔥 Avançando para o nível: " + nivelAtual.toUpperCase());
+            return;
+          }
+        } else {
+          alert("✅ Você concluiu todas as perguntas deste nível.");
+          index = 0;
+          perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+        }
+      }
+      atualizarPergunta();
+    }
+
+    function atualizarPergunta() {
+      document.getElementById("pergunta").textContent = perguntas[nivelAtual][perguntasOrdem[index]];
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+    }
+
+    function reiniciar() {
+      manual = false;
+      nivelIndex = 0;
+      setNivel(niveis[nivelIndex]);
+    }
+
+    reiniciar();
+  </script>
+</body>
+</html>
