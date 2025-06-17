@@ -1,85 +1,110 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Você Prefere – Sra. Festeira</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Você Prefere – Sra. Festeira</title>
+<style>
     body {
-      background-color: #000;
-      color: white;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 2rem;
+      background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+      font-family: 'Segoe UI', sans-serif;
+      color: #cceeff;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      background-attachment: fixed;
+      background-size: cover;
     }
+
+    button {
+      background: linear-gradient(145deg, #00bfff, #009acd);
+      border: none;
+      border-radius: 14px;
+      padding: 1.2rem 2.4rem;
+      font-size: 1.2rem;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.25s ease-in-out;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      min-width: 170px;
+    }
+
+    button:hover {
+      background: #00a5d9;
+      transform: scale(1.08);
+      box-shadow: 0 0 22px #00bfff;
+    }
+
+    .menu-botoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .card {
-      background: #880e4f;
+      background: #111827;
       border-radius: 20px;
       padding: 2rem;
       margin: 1rem;
       max-width: 600px;
       width: 100%;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
       text-align: center;
     }
+
     .title {
-      color: #FFD700;
-      font-size: 1.8rem;
+      color: #00bfff;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
     }
+
     .level {
-      color: #FFD700;
+      color: #00bfff;
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     .question {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-style: normal;
+      margin-bottom: 2rem;
     }
-    .btn {
-      background-color: #FFD700;
-      color: #000;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 0.25rem;
-    }
-    .btn:hover {
-      background-color: #ffe357;
-    }
+
     .controls {
-      margin: 1rem 0;
+      margin: 2rem 0 3rem;
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
       justify-content: center;
     }
-  </style>
+</style>
 </head>
 <body>
-  <div class="controls">
-    <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
-    <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
-    <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
-    <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
-  </div>
 
-  <div class="card">
-    <div class="title">Sra. Festeira, você prefere...</div>
-    <div class="level" id="nivel-label">Nível: SENSUAL</div>
-    <div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
-    <button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
-  </div>
+<div class="controls">
+<div class="menu-botoes">
+<button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+<button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+<button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+<button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+</div>
+</div>
 
-  <script>
+<div class="card">
+<div class="title">Sra. Festeira, você prefere...</div>
+<div class="level" id="nivel-label">Nível: SENSUAL</div>
+<div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
+<button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
+</div>
+<script>
     
 const perguntas = {
   "sensual": [
@@ -286,7 +311,6 @@ const autores = {
 
     reiniciar();
   </script>
-
 <script>
 const perguntas = {
   "sensual": ["Sra. Festeira, você prefere me ver mandando a Paty ficar de quatro ou segurar sua cintura enquanto ela te beija?", "Sra. Festeira, você prefere me ver tirando a calcinha da Paty com a boca ou sentir minha mão apertando sua bunda enquanto ela te beija?", "Sra. Festeira, você prefere ficar vendada enquanto a gente te toca ou ver tudo sem poder fazer nada?", "Sra. Festeira, você prefere sentar no meu colo enquanto beija a Paty ou ver ela te montar e se esfregar na sua cara?", "Sra. Festeira, você prefere tirar a roupa da Paty bem devagar ou deixar ela te provocar enquanto te deixo de frente pra mim?", "Sra. Festeira, você prefere minha língua chegando perto da sua buceta enquanto a Paty te beija ou os seios dela na sua cara enquanto aperto sua bunda?", "Paty, você prefere sentar no meu colo de calcinha enquanto beija a Sra. Festeira ou deitar com a bunda empinada esperando meu toque?", "Paty, você prefere me ver chupando a Sra. Festeira por cima da lingerie ou me ver apertando sua bunda enquanto ela te provoca?", "Paty, você prefere ficar de joelhos entre a gente beijando nossos corpos ou se esfregar na minha perna enquanto ela te beija no pescoço?", "Paty, você prefere rebolar de lingerie no meu colo enquanto ela te segura ou ver eu mandando ela te provocar do jeito que eu gosto?", "Paty, você prefere que eu tire sua calcinha te encarando bem safado ou que a Sra. Festeira tire e me entregue como presente?", "Paty, você prefere ficar de quatro sendo observada ou sentar no meu colo e deixar eu mandar na sua boca com os olhos?", "Vocês preferem tirar a roupa uma da outra me olhando ou se beijar até eu mandar parar?", "Vocês preferem se esfregar de calcinha no meu colo ou rebolar uma na outra até gemer?", "Vocês preferem sentar cada uma numa perna minha e se provocarem ou ficar de joelhos se beijando enquanto eu me toco?", "Vocês preferem que eu sente no meio e passe a mão nas duas ou que eu fique só mandando enquanto vocês brincam?", "Vocês preferem se beijar com a mão na buceta uma da outra ou se provocarem de frente enquanto eu escolho quem vai sentar em mim?", "Vocês preferem me ver sentado com o pau duro e se esfregarem até eu gozar ou me deixar no controle e obedecer tudo que eu pedir?", "Vocês preferem se provocar na minha frente enquanto eu filmo ou deitarem no sofá e deixarem eu assistir cada detalhe bem de perto?", "Vocês preferem me ver sentado esperando enquanto decidem quem vai me deixar louco primeiro ou que eu escolha quem vai rebolar e quem vai lamber?"],
@@ -300,6 +324,5 @@ const autores = {
   "hardcore": ["Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro"]
 };
 </script>
-
 </body>
 </html>

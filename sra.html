@@ -1,75 +1,109 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Você Prefere – Sra. Festeira</title>
+
   <style>
     body {
-      background-color: #000;
-      color: white;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 2rem;
+      background: linear-gradient(135deg, #2c001e, #3e1f32);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff0f5;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      background-attachment: fixed;
+      background-size: cover;
     }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      color: #ff69b4;
+      text-shadow: 0 0 12px #ff69b4;
+      text-align: center;
+    }
+
+    button {
+      background: linear-gradient(145deg, #ff1493, #ff69b4);
+      border: none;
+      border-radius: 14px;
+      padding: 1.2rem 2.4rem;
+      font-size: 1.2rem;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.25s ease-in-out;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      min-width: 170px;
+    }
+
+    button:hover {
+      background: #ff3399;
+      transform: scale(1.08);
+      box-shadow: 0 0 22px #ff69b4;
+    }
+
+    .menu-botoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .card {
-      background: #880e4f;
+      background: #3a1f2e;
       border-radius: 20px;
       padding: 2rem;
       margin: 1rem;
       max-width: 600px;
       width: 100%;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
       text-align: center;
     }
+
     .title {
-      color: #FFD700;
-      font-size: 1.8rem;
+      color: #ff69b4;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
     }
+
     .level {
-      color: #FFD700;
+      color: #ff69b4;
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     .question {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-style: normal;
+      margin-bottom: 2rem;
     }
-    .btn {
-      background-color: #FFD700;
-      color: #000;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 0.25rem;
-    }
-    .btn:hover {
-      background-color: #ffe357;
-    }
+
     .controls {
-      margin: 1rem 0;
+      margin: 2rem 0 3rem;
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
       justify-content: center;
     }
   </style>
 </head>
 <body>
   <div class="controls">
-    <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
-    <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
-    <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
-    <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+    <div class="menu-botoes">
+      <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+      <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+      <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+      <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+    </div>
   </div>
 
   <div class="card">
@@ -78,8 +112,7 @@
     <div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
     <button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
   </div>
-
-  <script>
+<script>
     
 const perguntas = {
   "sensual": [
@@ -285,9 +318,7 @@ const autores = {
     }
 
     reiniciar();
-  </script>
-
-<script>
+  </script><script>
 const perguntas = {
   "sensual": ["Você prefere me ver fazendo um boquete bem molhado ou me ver beijando sua esposa com sua porra na boca?", "Você prefere ser despido bem devagar ou ser amarrado de olhos vendados e só sentir nossos toques?", "Você prefere sentir nossas mãos te provocando por baixo da roupa ou nossas línguas subindo do pescoço até a boca?", "Você prefere assistir nós duas nos beijando lentamente ou sentir nossos corpos se esfregando em você ao mesmo tempo?", "Você prefere receber beijos no pescoço e mordidinhas ou sentir nossos peitos pressionando você por trás e pela frente?", "Você prefere ser provocado com a minha calcinha roçando no seu pau ou ver ela esfregando a buceta na sua perna até molhar você?", "Você prefere receber beijos suaves no pescoço ou ter o mamilo lambido enquanto sente a respiração no seu ouvido?", "Você prefere que eu tire sua blusa e beije seu peito ou que eu tire sua calcinha lentamente e beije sua barriga?", "Você prefere que eu e ele tiremos sua roupa juntos ou que você fique parada e deixe a gente fazer o que quiser com seu corpo?", "Você prefere um beijo no pé e outro na nuca ou lambidas descendo da orelha até os seios?", "Você prefere ficar de olhos vendados enquanto a gente brinca com seu corpo ou ver tudo no espelho enquanto rebola pra ele?", "Você prefere ouvir nossos gemidos se beijando enquanto você assiste ou sentir a gente roçando no seu corpo por todos os lados?"],
   "sexual": ["Você prefere que a gente chupe você juntos ou que ela sente no seu rosto enquanto eu te engulo inteiro?", "Você prefere meter fundo nela enquanto eu lambo seus mamilos ou ver ela me chupar enquanto você segura meu cabelo?", "Você prefere ver a gente de quatro se beijando enquanto você escolhe quem meter primeiro ou deitadas com as pernas abertas esperando sua escolha?", "Você prefere se sentar e ver nós duas revezando a chupada ou deitar e receber uma enquanto a outra beija sua barriga e peito?", "Você prefere gozar dentro de uma e ver a outra lamber tudo ou ver nós duas de boca aberta esperando seu jato?", "Você prefere ver a gente se masturbando na sua frente ou você deitado enquanto uma cavalga e a outra beija seu pescoço?", "Você prefere me chupar bem devagar ou enfiar os dedos enquanto lambe minha buceta molhada?", "Você prefere que ele chupe sua buceta com a minha língua junto ou que ele te foda enquanto eu sugo seus mamilos?", "Você prefere sentar no pau dele me olhando ou deitar de conchinha com ele enquanto eu te beijo e provoco?", "Você prefere me assistir te chupar inteira no espelho ou ficar de quatro com ele te comendo enquanto eu seguro sua cintura?", "Você prefere ele socando fundo enquanto eu te beijo e provoco ou revezar entre a língua dele e a minha na sua buceta?", "Você prefere gozar na minha boca enquanto olha nos olhos da sua esposa ou na dela enquanto eu beijo seu peito?"],
@@ -300,6 +331,5 @@ const autores = {
   "hardcore": ["Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira"]
 };
 </script>
-
 </body>
 </html>
