@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio da Lente - Escolha</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4e0545, #8e2de2);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .btn {
+      background-color: #6200ea;
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 20px;
+      font-size: 1.2em;
+      border-radius: 12px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #3700b3;
+    }
+
+    @media (max-width: 500px) {
+      .btn-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>📸 Escolha quem vai ser fotografado</h1>
+  <div class="btn-grid">
+    <a class="btn" href="mulher_sozinha.html">👩 Mulher Sozinha</a>
+    <a class="btn" href="homem_sozinho.html">👨 Homem Sozinho</a>
+    <a class="btn" href="duas_mulheres.html">👩‍❤️‍👩 Duas Mulheres</a>
+    <a class="btn" href="trisal.html">👩‍❤️‍👨 Trisal (1H2M)</a>
+  </div>
+</body>
+</html>

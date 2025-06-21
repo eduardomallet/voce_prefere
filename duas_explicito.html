@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulher Sozinha - sensual</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4a148c, #880e4f);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    #desafio {
+      font-size: 1.3em;
+      margin: 30px 0;
+      min-height: 100px;
+    }
+    .btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      font-size: 1em;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <h1>👩‍❤️‍👩 Duas Mulheres – Explícito</h1>
+  <div id="desafio">Clique em "Próxima Pose" para começar</div>
+  <button class="btn" onclick="mostrarProximo()">🔁 Próxima Pose</button>
+  <button class="btn" onclick="window.location.href='duas_mulheres.html'">🔙 Voltar</button>
+
+  <script>
+    const poses = ['De costas para a câmera, olhe por cima do ombro com um sorriso safado.', 'Deite na cama puxando o lençol até a cintura, deixando os ombros nus.', 'Use uma camiseta larga sem sutiã e levante os braços mostrando a silhueta.', 'Encoste-se na parede com uma perna dobrada e os olhos fechados.', 'Sente-se no chão com as pernas dobradas, abraçando os joelhos com delicadeza.', 'Deitada de lado com a calcinha aparecendo sob a camiseta.', 'Segure um lençol com as mãos cobrindo os seios, como se alguém tivesse te flagrado.', 'De pé na frente do espelho, olhando para si mesma com desejo.', 'Sorria de olhos fechados tocando seu próprio pescoço.', 'Use uma jaqueta aberta com lingerie por baixo e olhe direto para a lente.'];
+    let usadas = [];
+    function mostrarProximo() {
+      if (usadas.length === poses.length) {
+        document.getElementById('desafio').innerText = '✅ Você já viu todas as 10 poses dessa categoria!';
+        return;
+      }
+      let index;
+      do {
+        index = Math.floor(Math.random() * poses.length);
+      } while (usadas.includes(index));
+      usadas.push(index);
+      document.getElementById('desafio').innerText = poses[index];
+    }
+  </script>
+</body>
+</html>
