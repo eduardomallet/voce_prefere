@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mulher Sozinha - sensual</title>
+<style>
+    body {
+      background: linear-gradient(135deg, #4a148c, #880e4f);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    #desafio {
+      font-size: 1.3em;
+      margin: 30px 0;
+      min-height: 100px;
+    }
+    .btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      font-size: 1em;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+<h1>👩 Mulher Sozinha – Sexual</h1>
+<div id="desafio">Clique em "Próxima Pose" para começar</div>
+<button class="btn" onclick="mostrarProximo()">🔁 Próxima Pose</button>
+<button class="btn" onclick="window.location.href='mulher_sozinha.html'">🔙 Voltar</button>
+<script>
+    const poses = ['Simule masturbação por cima da calcinha olhando para a câmera.', 'De quatro com olhar de desejo para trás.', 'Blusa levantada com seios cobertos com as mãos.', 'Cueca ao lado, dedo entre as pernas.', 'Sentada com a calcinha puxada de lado.', 'De pé, mão dentro da calcinha.', 'Sentada na pia com a bunda empinada.', 'Apoiada na cabeceira com as pernas abertas.', 'Apenas meias e lingerie aberta deitada de bruços.', 'Dedos na boca com olhar safado.'];
+    let usadas = [];
+    function mostrarProximo() {
+      if (usadas.length === poses.length) {
+        document.getElementById('desafio').innerText = '✅ Você já viu todas as 10 poses dessa categoria!';
+        return;
+      }
+      let index;
+      do {
+        index = Math.floor(Math.random() * poses.length);
+      } while (usadas.includes(index));
+      usadas.push(index);
+      document.getElementById('desafio').innerText = poses[index];
+    }
+  </script>
+</body>
+</html>
