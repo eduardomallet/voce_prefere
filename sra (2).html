@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Você Prefere – Sra. Festeira</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #2c001e, #3e1f32);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      color: #ff69b4;
+      text-shadow: 0 0 12px #ff69b4;
+      text-align: center;
+    }
+
+    button {
+      background: linear-gradient(145deg, #ff1493, #ff69b4);
+      border: none;
+      border-radius: 14px;
+      padding: 1.2rem 2.4rem;
+      font-size: 1.2rem;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.25s ease-in-out;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      min-width: 170px;
+    }
+
+    button:hover {
+      background: #ff3399;
+      transform: scale(1.08);
+      box-shadow: 0 0 22px #ff69b4;
+    }
+
+    .menu-botoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: #3a1f2e;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      text-align: center;
+    }
+
+    .title {
+      color: #ff69b4;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .level {
+      color: #ff69b4;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      font-style: normal;
+      margin-bottom: 2rem;
+    }
+
+    .controls {
+      margin: 2rem 0 3rem;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <div class="menu-botoes">
+      <button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+      <button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+      <button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+      <button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">Sra. Festeira, você prefere...</div>
+    <div class="level" id="nivel-label">Nível: SENSUAL</div>
+    <div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
+    <button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
+  </div>
+<script>
+    
+const perguntas = {
+  "sensual": [
+    "Sr. Festeiro, você prefere me ver provocando a Feline enquanto te olho ou ver a Feline me provocando enquanto te encaro?",
+    "Sr. Festeiro, você prefere que a gente comece com beijos entre nós enquanto você observa ou já te puxarmos para participar?",
+    "Sr. Festeiro, você prefere me ver tirando a roupa da Feline lentamente ou me ver pedindo para ela tirar a minha?",
+    "Sr. Festeiro, você prefere assistir nós duas nos beijando de lingerie ou já estarmos nuas te chamando?",
+    "Sr. Festeiro, você prefere que eu sente no seu colo enquanto a Feline te beija ou que ela sente enquanto eu te beijo?",
+    "Sr. Festeiro, você prefere que nós duas massageemos seu corpo ou que você nos observe massageando uma à outra?",
+    "Feline, você prefere começar me beijando enquanto ele assiste ou me provocar com carícias discretas?",
+    "Feline, você prefere que eu tire sua lingerie lentamente ou que te provoque até você mesma arrancar?",
+    "Feline, você prefere que ele te observe me beijando ou que ele venha te provocar junto comigo?",
+    "Feline, você prefere me deitar na cama para me despir ou me encostar na parede para me provocar?",
+    "Feline, você prefere que eu te surpreenda com um toque inesperado ou que eu te avise exatamente o que quero fazer?",
+    "Feline, você prefere me surpreender com um presente picante ou preparar algo para nós dois juntos?",
+    "Vocês preferem que eu comece tocando cada um individualmente ou já começar com todos juntos?",
+    "Vocês preferem me ver dirigindo os movimentos de vocês ou que eu assista enquanto se provocam?",
+    "Vocês preferem que eu tire a roupa de vocês um por vez ou que se despeçam se encarando?",
+    "Vocês preferem que eu sente assistindo o começo ou que eu comande o jogo desde o início?",
+    "Vocês preferem começar com beijos triplos ou com provocações um a um?",
+    "Vocês preferem que eu fique observando enquanto se beijam ou que eu fique dando ordens durante os beijos?",
+    "Vocês preferem me surpreender com um strip provocante ou me deixar despir vocês?",
+    "Vocês preferem massagear um ao outro enquanto eu assisto ou que eu massageie os dois ao mesmo tempo?"
+  ],
+  "sexual": [
+    "Sr. Festeiro, você prefere me ver chupando a Feline enquanto olho para você ou me ver recebendo o oral dela enquanto toco seu corpo?",
+    "Sr. Festeiro, você prefere que a gente te chupe juntas ao mesmo tempo ou que eu comece e a Feline entre depois te provocando?",
+    "Sr. Festeiro, você prefere me penetrar enquanto eu beijo os seios da Feline ou penetrar a Feline enquanto eu beijo o corpo dela?",
+    "Sr. Festeiro, você prefere receber um oral nosso enquanto se provoca assistindo nós duas nos beijando ou enquanto acariciamos você?",
+    "Sr. Festeiro, você prefere que eu sente sobre você enquanto a Feline te chupa ou que a Feline sente e eu a provoque durante?",
+    "Sr. Festeiro, você prefere que nós duas alternemos as posições enquanto te chupamos ou que você conduza o ritmo e o tempo de cada uma?",
+    "Feline, você prefere começar me chupando enquanto ele assiste ou me receber com oral enquanto ele penetra você?",
+    "Feline, você prefere ser vendada enquanto nós dois te tocamos ou assistir enquanto eu beijo ele te provocando?",
+    "Feline, você prefere deitar e receber carícias de nós dois enquanto ele te penetra ou começar com beijos e provocações antes?",
+    "Feline, você prefere sentir o vibrador enquanto recebe beijos e penetração ou só com nossos toques enquanto aumenta o tesão?",
+    "Feline, você prefere segurar minha mão enquanto recebe penetração ou que eu segure seu cabelo enquanto te beijo e ele te penetra?",
+    "Feline, você prefere ser levada devagar ao prazer com nossos estímulos suaves ou que a gente não te dê trégua e te provoque sem parar?",
+    "Vocês preferem que eu masturbe vocês dois ao mesmo tempo ou que vocês me masturbem juntos enquanto nos provocamos?",
+    "Vocês preferem que eu fique de joelhos chupando ele enquanto beijo você ou que eu comece te chupando enquanto ele me segura?",
+    "Vocês preferem que eu estimule vocês com as mãos enquanto se beijam ou que eu apenas assista enquanto vocês brincam?",
+    "Vocês preferem que eu conduza o ritmo trocando vocês de posição ou que vocês mesmos revezem enquanto eu observo?",
+    "Vocês preferem que eu sente no meio de vocês para receber carícias dos dois ou ficar assistindo enquanto se provocam?",
+    "Vocês preferem começar com um oral a três juntos ou que eu vá provocando cada um de forma alternada?",
+    "Vocês preferem que eu massageie o corpo de vocês lentamente antes da penetração ou que eu observe enquanto vocês já se excitam?",
+    "Vocês preferem que eu controle o vibrador nos dois enquanto se beijam ou que eu me sente assistindo enquanto vocês brincam com os brinquedos?"
+  ],
+  "hardcore": [
+    "Sr. Festeiro, você prefere me ver chupando a Feline enquanto você a penetra ou assistir ela me chupando enquanto recebe sua penetração?",
+    "Sr. Festeiro, você prefere alternar a penetração entre mim e a Feline sem pausas ou focar em uma enquanto a outra te provoca oralmente?",
+    "Sr. Festeiro, você prefere segurar o cabelo de cada uma enquanto revezamos no boquete ou deixar que a gente controle a intensidade?",
+    "Sr. Festeiro, você prefere me ver amarrando a Feline e provocando ela enquanto você a penetra ou vê-la vendada enquanto conduzimos juntos o jogo?",
+    "Sr. Festeiro, você prefere que eu sente sobre seu rosto enquanto a Feline recebe sua penetração ou que a Feline sente sobre o seu rosto enquanto me penetra?",
+    "Sr. Festeiro, você prefere gozar na boca de ambas alternadamente ou que nós duas engulamos tudo juntas depois de nos beijarmos?",
+    "Feline, você prefere ser amarrada com as pernas abertas enquanto ele te penetra e eu te beijo ou ficar vendada enquanto revezamos os estímulos?",
+    "Feline, você prefere que eu use um vibrador em você enquanto ele te penetra ou que eu te estimule oralmente enquanto segura minha cabeça?",
+    "Feline, você prefere me ouvir te dar ordens enquanto ele te domina ou ouvir eu te provocar sussurrando no seu ouvido?",
+    "Feline, você prefere ser provocada com toques suaves antes de ser penetrada ou já começar sendo usada intensamente por nós?",
+    "Feline, você prefere gemer alto enquanto somos intensos ou tentar segurar o prazer enquanto te levamos ao limite?",
+    "Feline, você prefere gozar sendo penetrada com força enquanto eu beijo seu corpo ou com vibração intensa enquanto ele segura seu quadril?",
+    "Vocês preferem me assistir enquanto estimulo vocês com as mãos ou me ter controlando o vibrador enquanto se beijam?",
+    "Vocês preferem que eu comande as trocas entre oral e penetração ou que vocês revezem sozinhos enquanto eu assisto?",
+    "Vocês preferem me ter dando ordens enquanto ele penetra a Feline ou me ver provocando os dois com carícias?",
+    "Vocês preferem fazer um 69 entre vocês enquanto ele penetra ou me deixar sentar no meio para provocar os dois ao mesmo tempo?",
+    "Vocês preferem alternar quem me chupa enquanto ele penetra ou revezarem nas provocações até eu perder o controle?",
+    "Vocês preferem ser filmados enquanto se provocam comigo ou gravarem áudios dos gemidos para ouvirmos depois?",
+    "Vocês preferem gemer alto no meu ouvido enquanto o clímax acontece ou segurar o prazer até eu permitir o gozo?",
+    "Vocês preferem que eu amarre vocês juntos enquanto observo ou que eu participe comandando cada estímulo?"
+  ]
+};
+
+const autores = {
+  "sensual": [
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline"
+  ],
+  "sexual": [
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline"
+  ],
+  "hardcore": [
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Sr. Festeiro",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline",
+    "Sr. Festeiro e Feline"
+  ]
+};
+
+
+    const niveis = ["sensual", "sexual", "hardcore"];
+    let nivelIndex = 0;
+    let nivelAtual = niveis[nivelIndex];
+    let perguntasOrdem = [];
+    let index = 0;
+    let manual = false;
+
+    function embaralhar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function setNivel(nivel, isManual = false) {
+      nivelAtual = nivel;
+      nivelIndex = niveis.indexOf(nivel);
+      index = 0;
+      perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+      atualizarPergunta();
+      manual = isManual;
+    }
+
+    function proximaPergunta() {
+      index++;
+      if (index >= perguntas[nivelAtual].length) {
+        if (!manual) {
+          nivelIndex++;
+          if (nivelIndex >= niveis.length) {
+            alert("✅ Todos os níveis concluídos! Reiniciando...");
+            reiniciar();
+            return;
+          } else {
+            nivelAtual = niveis[nivelIndex];
+            setNivel(nivelAtual);
+            alert("🔥 Avançando para o nível: " + nivelAtual.toUpperCase());
+            return;
+          }
+        } else {
+          alert("✅ Você concluiu todas as perguntas deste nível.");
+          index = 0;
+          perguntasOrdem = embaralhar([...Array(perguntas[nivelAtual].length).keys()]);
+        }
+      }
+      atualizarPergunta();
+    }
+
+    function atualizarPergunta() {
+      
+      const autor = autores[nivelAtual][perguntasOrdem[index]];
+      document.querySelector(".title").textContent = autor;
+      document.getElementById("pergunta").textContent = perguntas[nivelAtual][perguntasOrdem[index]];
+
+      document.getElementById("nivel-label").textContent = "Nível: " + nivelAtual.toUpperCase();
+    }
+
+    function reiniciar() {
+      manual = false;
+      nivelIndex = 0;
+      setNivel(niveis[nivelIndex]);
+    }
+
+    reiniciar();
+  </script><script>
+const perguntas = {
+  "sensual": ["Você prefere me ver fazendo um boquete bem molhado ou me ver beijando sua esposa com sua porra na boca?", "Você prefere ser despido bem devagar ou ser amarrado de olhos vendados e só sentir nossos toques?", "Você prefere sentir nossas mãos te provocando por baixo da roupa ou nossas línguas subindo do pescoço até a boca?", "Você prefere assistir nós duas nos beijando lentamente ou sentir nossos corpos se esfregando em você ao mesmo tempo?", "Você prefere receber beijos no pescoço e mordidinhas ou sentir nossos peitos pressionando você por trás e pela frente?", "Você prefere ser provocado com a minha calcinha roçando no seu pau ou ver ela esfregando a buceta na sua perna até molhar você?", "Você prefere receber beijos suaves no pescoço ou ter o mamilo lambido enquanto sente a respiração no seu ouvido?", "Você prefere que eu tire sua blusa e beije seu peito ou que eu tire sua calcinha lentamente e beije sua barriga?", "Você prefere que eu e ele tiremos sua roupa juntos ou que você fique parada e deixe a gente fazer o que quiser com seu corpo?", "Você prefere um beijo no pé e outro na nuca ou lambidas descendo da orelha até os seios?", "Você prefere ficar de olhos vendados enquanto a gente brinca com seu corpo ou ver tudo no espelho enquanto rebola pra ele?", "Você prefere ouvir nossos gemidos se beijando enquanto você assiste ou sentir a gente roçando no seu corpo por todos os lados?"],
+  "sexual": ["Você prefere que a gente chupe você juntos ou que ela sente no seu rosto enquanto eu te engulo inteiro?", "Você prefere meter fundo nela enquanto eu lambo seus mamilos ou ver ela me chupar enquanto você segura meu cabelo?", "Você prefere ver a gente de quatro se beijando enquanto você escolhe quem meter primeiro ou deitadas com as pernas abertas esperando sua escolha?", "Você prefere se sentar e ver nós duas revezando a chupada ou deitar e receber uma enquanto a outra beija sua barriga e peito?", "Você prefere gozar dentro de uma e ver a outra lamber tudo ou ver nós duas de boca aberta esperando seu jato?", "Você prefere ver a gente se masturbando na sua frente ou você deitado enquanto uma cavalga e a outra beija seu pescoço?", "Você prefere me chupar bem devagar ou enfiar os dedos enquanto lambe minha buceta molhada?", "Você prefere que ele chupe sua buceta com a minha língua junto ou que ele te foda enquanto eu sugo seus mamilos?", "Você prefere sentar no pau dele me olhando ou deitar de conchinha com ele enquanto eu te beijo e provoco?", "Você prefere me assistir te chupar inteira no espelho ou ficar de quatro com ele te comendo enquanto eu seguro sua cintura?", "Você prefere ele socando fundo enquanto eu te beijo e provoco ou revezar entre a língua dele e a minha na sua buceta?", "Você prefere gozar na minha boca enquanto olha nos olhos da sua esposa ou na dela enquanto eu beijo seu peito?"],
+  "hardcore": ["Você prefere me ver chupando seu pau e enfiando na buceta dela alternadamente ou ver ela me chupar enquanto recebe sua penetração?", "Você prefere meter fundo alternando entre mim e sua esposa enquanto trocamos beijos ou foder uma enquanto a outra lambe seus mamilos?", "Você prefere agarrar nossas cabeças enquanto revezamos a chupada ou ver a gente disputando sua rola com beijos bem sujos?", "Você prefere me ver apertando os seios dela enquanto você soca fundo ou me ver mordendo o pescoço dela enquanto ela geme com você dentro?", "Você prefere que nós duas cavalgue você alternadamente, gemendo no seu ouvido, ou escolher quem vai rebolar primeiro enquanto a outra beija você?", "Você prefere gozar na boca de uma, depois na outra, ou gozar direto no rosto e ver a gente se lambendo enquanto engole tudo?", "Você prefere me ouvir te mandar abrir as pernas enquanto ele mete fundo ou sentir minha boca te provocando enquanto ele te domina?", "Você prefere ser vendada enquanto a gente te usa até gozar ou olhar tudo no espelho enquanto sente ele te penetrar?", "Você prefere o vibrador na sua buceta enquanto sente ele te encher ou minha língua descendo enquanto ele segura seu quadril?", "Você prefere ser amarrada bem aberta enquanto a gente te chupa e mete ou ficar solta, sendo provocada sem parar?", "Você prefere gozar várias vezes enquanto alternamos os estímulos ou ser levada direto ao limite até implorar para parar?", "Você prefere gozar sendo fodida forte enquanto eu sugo seus seios ou gemer alto enquanto ele te penetra e eu seguro seu rosto?", "3.21 Sr. Festeiro, você prefere gozar na boca da Feline com ela me beijando logo depois ou encher os peitos dela de porra e ver a gente lambendo tudo juntas?", "3.22 Sr. Festeiro, você prefere gozar bem fundo na minha buceta com a Feline vendo de perto ou gozar na dela enquanto eu abro e lambo tudo depois?", "3.23 Feline, você prefere sentir a porra dele escorrendo na sua boca enquanto eu te beijo ou na sua bunda com a gente passando a mão e brincando com o gosto?", "3.24 Feline, você prefere ver ele gozar na minha cara enquanto você se masturba ou sentir ele gozar dentro de você com a minha boca bem ali?", "3.25 Vocês preferem que eu decida onde cada um vai gozar e assista lambendo ou que vocês dois escolham e façam questão de me mostrar bem de perto?", "3.26 Vocês preferem gozar juntos na minha boca e ver eu engolindo tudo ou me fazer gozar primeiro e depois usar minha cara como brinquedo de porra?"]
+};
+
+const autores = {
+  "sensual": ["Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira"],
+  "sexual": ["Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira"],
+  "hardcore": ["Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sr. Festeiro", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira", "Sra. Festeira"]
+};
+</script>
+</body>
+</html>
