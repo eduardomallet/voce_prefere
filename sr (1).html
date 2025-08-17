@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você Prefere - Sr. Festeiro perguntando</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #111; color: #eee; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: #222; padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(255,0,100,0.5); }
+        h1 { color: #ff0066; }
+        .question { font-size: 1.2em; margin: 20px 0; }
+        button { background: #ff0066; color: white; border: none; padding: 10px 20px; margin: 10px; border-radius: 8px; font-size: 1em; cursor: pointer; }
+        button:hover { background: #ff3385; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Você Prefere 🔥</h1>
+        <h2>Sr. Festeiro perguntando para Gabriela e Feline</h2>
+        <div id="question" class="question">Clique em "Próxima" para começar...</div>
+        <button onclick="nextQuestion()">Próxima</button>
+        <button onclick="restartGame()">Reiniciar</button>
+    </div>
+
+    <script>
+        const questions = [
+            "Gabriela, você prefere provocar o Sr. Festeiro com beijos no pescoço ou deixar que a Feline faça isso?",
+            "Feline, você prefere fazer um strip tease só para mim ou junto com a Gabriela, tirando a roupa uma da outra?",
+            "Vocês duas preferem começar me provocando com beijos triplos ou me amarrar e tomar o controle?",
+            "Gabriela, você prefere dançar de forma provocante para mim ou se juntar à Feline para me prender contra a parede?",
+            "Feline, você prefere me provocar com um beijo intenso ou deixar Gabriela começar e depois assumir?",
+            "Vocês duas preferem se revezar me deixando de olhos vendados ou brincar comigo com óleo até eu não aguentar mais?",
+            "Gabriela, você prefere sussurrar sacanagens no meu ouvido ou pedir para Feline fazer isso enquanto me toca?",
+            "Feline, você prefere me amarrar na cama e brincar comigo ou se juntar com a Gabriela para me dominar juntas?",
+            "Vocês duas preferem me fazer assistir enquanto vocês se curtem ou me puxar para o meio e não me deixar escapar?",
+            "Gabriela, você prefere provocar a Feline na minha frente ou me provocar enquanto Feline assiste?",
+            "Feline, você prefere me beijar lentamente enquanto Gabriela me toca ou inverter os papéis?",
+            "Vocês duas preferem competir para ver quem me faz gozar primeiro ou se unir para me levar ao limite juntos?"
+        ];
+
+        let current = 0;
+
+        function nextQuestion() {
+            const questionDiv = document.getElementById("question");
+            if (current < questions.length) {
+                questionDiv.innerHTML = questions[current];
+                current++;
+            } else {
+                questionDiv.innerHTML = "🔥 O jogo acabou... querem recomeçar? 🔥";
+            }
+        }
+
+        function restartGame() {
+            current = 0;
+            document.getElementById("question").innerHTML = "Clique em 'Próxima' para começar...";
+        }
+    </script>
+</body>
+</html>
