@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Você Prefere – Feline</title>
+<style>
+    body {
+      background: linear-gradient(135deg, #1e003a, #4b0082);
+      font-family: 'Segoe UI', sans-serif;
+      color: #f2e6ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    button {
+      background: linear-gradient(145deg, #a64ca6, #800080);
+      border: none;
+      border-radius: 14px;
+      padding: 1.2rem 2.4rem;
+      font-size: 1.2rem;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.25s ease-in-out;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+      min-width: 170px;
+    }
+    button:hover {
+      background: #9932cc;
+      transform: scale(1.08);
+      box-shadow: 0 0 22px #a64ca6;
+    }
+    .menu-botoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: #2e003e;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 1rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(186, 85, 211, 0.3);
+      text-align: center;
+    }
+    .title {
+      color: #dda0dd;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .level {
+      color: #dda0dd;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .question {
+      font-size: 1.3rem;
+      font-style: normal;
+      margin-bottom: 2rem;
+    }
+    .controls {
+      margin: 2rem 0 3rem;
+      display: flex;
+      justify-content: center;
+    }
+</style>
+</head>
+<body>
+
+<div class="controls">
+<div class="menu-botoes">
+<button class="btn" onclick="setNivel('sensual', true)">Nível 1: Sensual</button>
+<button class="btn" onclick="setNivel('sexual', true)">Nível 2: Sexual</button>
+<button class="btn" onclick="setNivel('hardcore', true)">Nível 3: Hardcore</button>
+<button class="btn" onclick="reiniciar()">🔁 Reiniciar</button>
+</div>
+</div>
+
+<div class="card">
+<div class="title">Feline, você prefere...</div>
+<div class="level" id="nivel-label">Nível: SENSUAL</div>
+<div class="question" id="pergunta">Clique em "Próxima 🔥" para começar</div>
+<button class="btn" onclick="proximaPergunta()">Próxima 🔥</button>
+</div>
+
+<script>
+// Aqui entraria o mesmo JS de perguntas, mas já com Paty -> Feline substituído.
+</script>
+
+</body>
+</html>
